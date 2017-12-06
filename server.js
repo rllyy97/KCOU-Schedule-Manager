@@ -22,9 +22,12 @@ app.use(bodyParser.json());
 /*Basic routing for dynamic javascript*/
 app.use('/js', express.static(__dirname + '/static/assets/js/'));
 
+//Will serve our index.
 app.get('/', function(req, res){
   res.send('hello world');
 });
+
+
 
 app.get('/dbtest', function(req, res){
   connection.connect()
@@ -42,6 +45,24 @@ app.get('/dbtest', function(req, res){
 
   connection.end();
 });
+
+app.get('/getShows', function(req, res){
+  connection.connect()
+  console.log("Fetching Shows");
+
+  connection.query('SELECT * FROM shows', function(err, results){
+    if (err){
+      console.log(err)
+    }
+    for(info in results){
+      console.log(info.title);
+    }
+  });
+
+  res.send("Got shows");
+  connection.end();
+
+})
 
 http.listen(3000, function(){
   console.log('listening on *:3000');
