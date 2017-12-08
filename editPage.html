@@ -1,0 +1,121 @@
+<!--–– MAIN VIEW ---->
+<html>
+    <head>
+        <style>
+            
+            html { 
+                font-family:sans-serif;
+                background-image: url("background.png");
+                background-repeat: repeat;
+            }
+            
+            .weekCard{
+                text-align: center;
+                border-radius: 4px;
+            }
+
+            .weekday{
+                width: 120px;
+                height: 50px;
+                float: left;
+                font-weight: 700;
+                vertical-align: middle;
+                line-height: 50px;
+            }
+
+            .title{
+                width: 580px;
+                height: 50px;
+                float: center;
+                font-weight: 700;
+                vertical-align: middle;
+                line-height: 50px;
+                font-size: 36px;
+            }
+            
+            #card {
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                border: 0;
+                border-radius: 4px;
+            }
+        </style>
+
+    </head>
+    <body>
+        <div id="card" style="padding: 20 30 30 30; margin: 20px auto; max-width: 840px;background-color: white;">
+            <div style="display: inline-block;width:840px; height:50px; line-height: 50px; border: 0; border-radius: 4px;">
+                <div style="float: left;" class="title">
+                    KCOU Schedule Manager            
+                </div>
+                <button id="card" style="width:120px; height:50px;font-weight: 700;font-size: 18px; color: white; background-color: #1de9b6; float: left;">
+                    Save
+                </button>
+                <div style="width: 20px; height: 20px; float: left"></div>
+                <button id="card" style="width:120px; height:50px;font-weight: 700;font-size: 18px; color: white; background-color: #ff1844; float: left;">
+                    Cancel
+                </button>
+                </div>
+                <div style="width: 840px; height: 20px; border-bottom: 1px solid lightgrey;"></div>
+                <div style="width: 840px; height: 20px;"></div>
+            <form action="/action_page.php" id="usrform">
+                <div class="title">
+                    Title: <input style="font-size: 36px;" type="text" name="title" placeholder=" Title*">    
+                </div>
+                <br>
+                <div  style="font-size: 20px;">
+                    Hosts: <br>
+                    <input style="margin: 5 0 0 0; font-size: 20px;" type="text" name="hostOne" placeholder=" Host 1*"><br>
+                    <input style="margin: 5 0 0 0; font-size: 20px;" type="text" name="hostTwo" placeholder=" Host 2"><br>  
+                    <input style="margin: 5 0 0 0; font-size: 20px;" type="text" name="hostThree" placeholder=" Host 3"><br>  
+                    <input style="margin: 5 0 0 0; font-size: 20px;" type="text" name="hostFour" placeholder=" Host 4"><br>  
+                    <input style="margin: 5 0 0 0;; font-size: 20px;" type="text" name="hostFive" placeholder=" Host 5"><br>  
+                </div>
+                <br>
+                <div  style="font-size: 20px;">
+                    Category <br>
+                    <select name="category">
+                        <option value="rotation">Rotation</option>
+                        <option value="talk">Talk</option>
+                        <option value="specialty">Specialty</option>
+                        <option value="sports">Sports</option>
+                    </select>
+                </div>
+                <br>
+                <div  style="font-size: 20px;">
+                    Day of the week: <br>
+                    <select name="dayOfTheWeek">
+                        <option value="sunday">Sunday</option>
+                        <option value="monday">Monday</option>
+                        <option value="tuesday">Tuesday</option>
+                        <option value="wednesday">Wednesday</option>
+                        <option value="thursday">Thursday</option>
+                        <option value="friday">Friday</option>
+                        <option value="saturday">Saturday</option>
+                    </select>
+                </div>
+                <br>
+                <div  style="font-size: 20px;">
+                    Start Time: <br>
+                    <input id="startTime" type="time">
+                </div>
+                <br>
+                <div  style="font-size: 20px;">
+                    End Time: <br>
+                    <input id="endTime" type="time">
+                </div>
+                <br>
+                <div  style="font-size: 20px;">
+                    Description: <br>
+                    <textarea rows="4" cols="50" name="description" form="usrform" placeholder="Description*"></textarea>
+                </div>
+                
+            
+            
+            </form>
+            
+        </div>
+    </body>
+    
+    
+    
+</html>
