@@ -38,6 +38,11 @@
           border: 0;
           border-radius: 4px;
       }
+
+      .adding {
+        color: white;
+        text-decoration: none;
+      }
         </style>
 
     </head>
@@ -47,17 +52,23 @@
                 <div style="float: left;" class="title">
                     KCOU Schedule Manager
                 </div>
-                <button id="card" style="width:120px; height:50px;font-weight: 700;font-size: 18px; color: white; background-color: #1de9b6; float: left;">
+                <form action="/addShow" id="usrform" method=POST>
+
+                <input type="submit" Value="Save" id="card" style="width:120px; height:50px;font-weight: 700;font-size: 18px; color: white; background-color: #1de9b6; float: left;">
+        <!--        <button id="card" style="width:120px; height:50px;font-weight: 700;font-size: 18px; color: white; background-color: #1de9b6; float: left;">
                     Save
-                </button>
+                </button> -->
                 <div style="width: 20px; height: 20px; float: left"></div>
                 <button id="card" style="width:120px; height:50px;font-weight: 700;font-size: 18px; color: white; background-color: #ff1844; float: left;">
-                    Cancel
+                  <a class="adding" href="/"> Cancel </a>
                 </button>
                 </div>
                 <div style="width: 840px; height: 20px; border-bottom: 1px solid lightgrey;"></div>
                 <div style="width: 840px; height: 20px;"></div>
-            <form action="/action_page.php" id="usrform">
+                <div>
+        <!--           -->
+                  <hr>
+                </div>
                 <div class="title">
                     Title: <input style="font-size: 36px;" type="text" name="title" placeholder=" Title*">
                 </div>

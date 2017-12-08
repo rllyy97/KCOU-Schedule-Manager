@@ -36,6 +36,8 @@ app.get('/add', function(req, res){
 
 
 
+
+
 app.get('/dbtest', function(req, res){
   connection.connect()
   connection.query('SELECT * FROM hosts', function(err, results){
@@ -70,6 +72,14 @@ app.get('/getShows', function(req, res){
   });
   connection.end();
 
+})
+
+app.post('/addShow', function(req, res){
+  connection.connect()
+  console.log("Adding  a Show")
+  console.log(req.body);
+  console.log("Ended");
+  connection.end();
 })
 
 http.listen(3000, function(){
