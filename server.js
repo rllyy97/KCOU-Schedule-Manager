@@ -83,27 +83,6 @@ app.post('/addShow', function(req, res){
 
   var title = req.body.title;
   var hosts = [];
-  /*
-  if (req.body.hostOne != ''){
-    var x = req.body.hostOne;
-    hosts.push(x);
-  }
-  if (req.body.hostTwo != ''){
-    var x = req.body.hostTwo;
-    hosts.push(x);
-  }
-  if (req.body.hostThree != ''){
-    var x = req.body.hostThree;
-    hosts.push(x);
-  }
-  if (req.body.hostFour != ''){
-    var x = req.body.hostFour;
-    hosts.push(x);
-  }
-  if (req.body.hostFive != ''){
-    var x = req.body.hostFive;
-    hosts.push(x);
-  } */
   if (req.body.hostOneFirst != ''){
     host1 = {
       first: req.body.hostOneFirst,
@@ -137,22 +116,14 @@ app.post('/addShow', function(req, res){
   var end_time = req.body.endtime;
   var description = req.body.description;
 
-//  console.log(category);
-//  console.log(title);
-//  console.log(weekday);
-//  console.log(description);
   console.log(hosts);
-//  console.log(start_time);
-//  console.log(end_time);
+
 
   var sql = "INSERT INTO shows (title, category, start_time, end_time, description, weekday) VALUES "
   var tooAdd = "( '" + title + "', '"  + category + "', '" + start_time + "', '" + end_time + "', '" + description + "', '" + weekday + "')";
   var totalQuery = sql + tooAdd;
   var k;
   console.log(totalQuery);
-
-
-
   connection.query(totalQuery, function(err, results){
     if (err){
       console.log(err)
@@ -161,7 +132,6 @@ app.post('/addShow', function(req, res){
       console.log("Posted!");
       len = hosts.length
       title = "'"+title+"'"
-     //for (i = 0; i < len; i++){
         query = "SELECT * FROM shows WHERE title=" + title;
         connection.query(query, function(err, results){
           if(err){
@@ -170,9 +140,6 @@ app.post('/addShow', function(req, res){
           else{
           k = results[0].id
           console.log(k);
-    //      hostAdd = "INSERT INTO hosts (show_id, first_name, last_name, dj_name) VALUES "
-    //      var tooAdd = "(" + k + ", '"  + hosts[i].first + "', '" + hosts[i].last + "', '" + hosts[i].dj + "')";
-  //        var totalQ = hostAdd + tooAdd;
           for (var i=0; i < len; i++){
                 hostAdd = "INSERT INTO hosts (show_id, first_name, last_name, dj_name) VALUES "
                 var tooAdd = "(" + k + ", '"  + hosts[i].first + "', '" + hosts[i].last + "', '" + hosts[i].dj + "')";
@@ -189,7 +156,6 @@ app.post('/addShow', function(req, res){
           connection.end();
         }
         });
-  //    }
     }
 
   });
