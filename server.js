@@ -54,6 +54,7 @@ app.get('/getShows', function(req, res){
     if (err){
       console.log(err)
     }
+    console.log(results);
     for(info in results){
       console.log(info.title);
     }
