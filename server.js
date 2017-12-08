@@ -78,10 +78,69 @@ app.post('/addShow', function(req, res){
   connection.connect()
   console.log("Adding  a Show")
   console.log(req.body);
-  console.log("Ended");
-  connection.end();
-})
+  //Configuring our post
+
+  var title = req.body.title;
+  var hosts = [];
+  if (req.body.hostOne != ''){
+    var x = req.body.hostOne;
+    hosts.push(x);
+  }
+  if (req.body.hostTwo != ''){
+    var x = req.body.hostTwo;
+    hosts.push(x);
+  }
+  if (req.body.hostThree != ''){
+    var x = req.body.hostThree;
+    hosts.push(x);
+  }
+  if (req.body.hostFour != ''){
+    var x = req.body.hostFour;
+    hosts.push(x);
+  }
+  if (req.body.hostFive != ''){
+    var x = req.body.hostFive;
+    hosts.push(x);
+  }
+
+  var category = req.body.category;
+  var weekday = req.body.dayOfTheWeek;
+  var start_time = req.body.startTime;
+  var end_time = req.body.endtime;
+  var description = req.body.description;
+
+  console.log(category);
+  console.log(title);
+  console.log(weekday);
+  console.log(description);
+  console.log(hosts);
+  console.log(start_time);
+  console.log(end_time);
+
+  var sql = "INSERT INTO shows (title, category, start_time, end_time, description, weekday) VALUES "
+  var tooAdd = "( '" + title + "', '"  + category + "', '" + start_time + "', '" + end_time + "', '" + description + "', '" + weekday + "')";
+  var totalQuery = sql + tooAdd;
+  console.log(totalQuery);
+
+
+  connection.query(totalQuery, function(err, results){
+    if (err){
+      console.log(err)
+    }
+    else {
+      console.log("Posted!");
+    }
+
+  });
+
+
+      console.log("Ended");
+      connection.end();
+
+  res.sendFile(__dirname + '/index.html');
+});
 
 http.listen(3000, function(){
   console.log('listening on *:3000');
+
 });
