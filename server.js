@@ -2,7 +2,8 @@ var app = require('express')();
 var express = require('express');
 var http = require('http').Server(app);
 var bodyParser = require('body-parser');
-var mysql = require('mysql')
+var mysql = require('mysql');
+//var Q = require('Q');
 var connection = mysql.createConnection({
   host : 'localhost',
   user: 'kcouDB',
@@ -82,6 +83,7 @@ app.post('/addShow', function(req, res){
 
   var title = req.body.title;
   var hosts = [];
+  /*
   if (req.body.hostOne != ''){
     var x = req.body.hostOne;
     hosts.push(x);
@@ -101,7 +103,33 @@ app.post('/addShow', function(req, res){
   if (req.body.hostFive != ''){
     var x = req.body.hostFive;
     hosts.push(x);
+  } */
+  if (req.body.hostOneFirst != ''){
+    host1 = {
+      first: req.body.hostOneFirst,
+      last: req.body.hostOneLast,
+      dj: req.body.hostOneDJ
+    }
+    hosts.push(host1);
   }
+  if (req.body.hostTwoFirst != ''){
+    host2 = {
+      first: req.body.hostTwoFirst,
+      last: req.body.hostTwoLast,
+      dj: req.body.hostTwoDJ
+    }
+    hosts.push(host2);
+  }
+  if (req.body.hostThreeFirst != ''){
+    host3 = {
+      first: req.body.hostThreeFirst,
+      last: req.body.hostThreeLast,
+      dj: req.body.hostThreeDJ
+    }
+    hosts.push(host3);
+  }
+
+  console.log(hosts);
 
   var category = req.body.category;
   var weekday = req.body.dayOfTheWeek;
@@ -109,18 +137,20 @@ app.post('/addShow', function(req, res){
   var end_time = req.body.endtime;
   var description = req.body.description;
 
-  console.log(category);
-  console.log(title);
-  console.log(weekday);
-  console.log(description);
+//  console.log(category);
+//  console.log(title);
+//  console.log(weekday);
+//  console.log(description);
   console.log(hosts);
-  console.log(start_time);
-  console.log(end_time);
+//  console.log(start_time);
+//  console.log(end_time);
 
   var sql = "INSERT INTO shows (title, category, start_time, end_time, description, weekday) VALUES "
   var tooAdd = "( '" + title + "', '"  + category + "', '" + start_time + "', '" + end_time + "', '" + description + "', '" + weekday + "')";
   var totalQuery = sql + tooAdd;
+  var k;
   console.log(totalQuery);
+
 
 
   connection.query(totalQuery, function(err, results){
@@ -129,14 +159,42 @@ app.post('/addShow', function(req, res){
     }
     else {
       console.log("Posted!");
+      len = hosts.length
+      title = "'"+title+"'"
+     //for (i = 0; i < len; i++){
+        query = "SELECT * FROM shows WHERE title=" + title;
+        connection.query(query, function(err, results){
+          if(err){
+            console.log(err);
+          }
+          else{
+          k = results[0].id
+          console.log(k);
+    //      hostAdd = "INSERT INTO hosts (show_id, first_name, last_name, dj_name) VALUES "
+    //      var tooAdd = "(" + k + ", '"  + hosts[i].first + "', '" + hosts[i].last + "', '" + hosts[i].dj + "')";
+  //        var totalQ = hostAdd + tooAdd;
+          for (var i=0; i < len; i++){
+                hostAdd = "INSERT INTO hosts (show_id, first_name, last_name, dj_name) VALUES "
+                var tooAdd = "(" + k + ", '"  + hosts[i].first + "', '" + hosts[i].last + "', '" + hosts[i].dj + "')";
+                var totalQ = hostAdd + tooAdd;
+                connection.query(totalQ, function(err, results){
+                  if(err){
+                    console.log(err);
+                  }
+                  else{
+                    console.log("Cool.");
+                  }
+                });
+              }
+          connection.end();
+        }
+        });
+  //    }
     }
 
   });
-
-
+      console.log(k);
       console.log("Ended");
-      connection.end();
-
   res.sendFile(__dirname + '/index.html');
 });
 
