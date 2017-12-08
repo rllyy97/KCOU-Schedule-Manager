@@ -30,6 +30,11 @@ app.get('/', function(req, res){
 });
 
 
+app.get('/add', function(req, res){
+  res.sendFile(__dirname + '/editPage.html');
+});
+
+
 
 app.get('/dbtest', function(req, res){
   connection.connect()
