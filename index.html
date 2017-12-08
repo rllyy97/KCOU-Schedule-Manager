@@ -12,89 +12,72 @@
 
         <style>
 
-                        html {
-                    font-family:sans-serif;
-                }
+        html {
+            font-family:sans-serif;
+        }
 
-                .weekCard{
-                    text-align: center;
-                    border-radius: 4px;
-                }
+        .weekCard{
+            text-align: center;
+            border-radius: 4px;
+        }
 
-                .weekday{
-                    width: 120px;
-                    height: 50px;
-                    float: left;
-                    font-weight: 700;
-                    vertical-align: middle;
-                    line-height: 50px;
-                }
+        .weekday{
+            width: 120px;
+            height: 50px;
+            float: left;
+            font-weight: 700;
+            vertical-align: middle;
+            line-height: 50px;
+        }
 
-                .title{
-                    width: 540px;
-                    height: 50px;
-                    float: center;
-                    position: absolute;
-                    font-weight: 700;
-                    vertical-align: middle;
-                    line-height: 50px;
-                }
+        .title{
+            width: 540px;
+            height: 50px;
+            float: center;
+            position: absolute;
+            font-weight: 700;
+            vertical-align: middle;
+            line-height: 50px;
+        }
 
-                .weekCard{
-                    text-align: center;
-                    border-radius: 4px;
-                }
+        .weekCard{
+            text-align: center;
+            border-radius: 4px;
+        }
 
-                #show{
-                    width: 118px;
-                    margin: 2px;
-                    text-align: center;
-                    font-weight: 700;
-                    vertical-align: middle;
-                    line-height: inherit;
-                    color: white;
-                    position: absolute;
-                    display:inline-block;
-                    z-index:2;
-                    border:none;
-                    font-family:inherit;
-                }
+        #show{
+            width: 118px;
+            margin: 2px;
+            text-align: center;
+            font-weight: 700;
+            vertical-align: middle;
+            line-height: inherit;
+            color: white;
+            position: absolute;
+            display: block;
+            z-index: 3;
+            border:none;
+            font-family:inherit;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.0);
+            border: 0;
+            border-radius: 4px;
+            word-wrap: break-word;
+            overflow: hidden;
+        }
 
-                #category{float:left;width:840px;text-align:center;font-weight:600;}
-                .rotation{background-color:#d500f9}
-                .talk{background-color:#7c4dff}
-                .specialty{background-color:#40c4ff}
-                .sports{background-color:#1de9b6}
-                .safeHarbor{background-color:#ff1844}
+        #category{float:left;width:840px;text-align:center;font-weight:600;}
+        .rotation{background-color:#d500f9}
+        .talk{background-color:#7c4dff}
+        .specialty{background-color:#40c4ff}
+        .sports{background-color:#1de9b6}
+        .safeHarbor{background-color:#ff1844}
 
-                #hourLine{
-                    z-index: 1;
-                    width: 840px;
-                    height: 29px;
-                    border-top: 1px solid lightgrey;
-                    font-size: 10px;
-                    color: lightgrey;
-                }
-
-                #leftHours {
-                    position: relative;
-                    top: -16px;
-                    left: -20px;
-                }
-
-                #rightHours {
-                    position: relative;
-                    top: -38px;
-                    left: 850px;
-                    width: 20px;
-                }
-
-                #card {
-                    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-                    border: 0;
-                    border-radius: 4px;
-                }
-
+        #card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.0);
+            border: 0;
+            border-radius: 4px;
+        }
+        
             .adding {
               color: white;
               text-decoration: none;
@@ -105,10 +88,10 @@
     </head>
 
     <body>
-        <div id="card" style="padding: 20 30 50 30; margin: 20px auto; max-width: 840px;background-color: white;">
+        <div id="card" style="padding: 20 30 50 30; margin: 20px ; width: 840px; height: 871px; background-image: url(/images/kcouBG.jpg);">
             <div style="display: inline-block;width:840px; height:50px; line-height: 50px;">
-                <div style="width:720;font-weight: 700;font-size: 36px;vertical-align: middle;line-height: 50px; float: left;" onclick="">
-                  KCOU Schedule Manager
+                <div style="width:720;font-weight: 700;font-size: 36px;vertical-align: middle;line-height: 50px; float: left;">
+                    KCOU Schedule Manager
                 </div>
                 <button style="width:120px; height:50px;font-weight: 700;font-size: 18px; color: white; border: 0; background-color: #1De9b6; border-radius: 4px; float: left;" >
                   <a class="adding" href="/add"> Add Show </a>
@@ -141,67 +124,6 @@
                             top:470px;"
                      id="show">It's Just Me</button>
             -->
-
-             <!--END-->
-                <!--–– HOUR LINES ---->
-                <div id="hourLine"><p id="leftHours">12<br>am</p>
-                <p id="rightHours" style="top: -50;">12<br>am</p></div>
-                <div id="hourLine"><p id="leftHours">01</p>
-                <p id="rightHours">01</p></div>
-                <div id="hourLine"><p id="leftHours">02</p>
-                <p id="rightHours">02</p></div>
-                <div id="hourLine"><p id="leftHours">03</p>
-                <p id="rightHours">03</p></div>
-                <div id="hourLine"><p id="leftHours">04</p>
-                <p id="rightHours">04</p></div>
-                <div id="hourLine"><p id="leftHours">05</p>
-                <p id="rightHours">05</p></div>
-                <div id="hourLine"><p id="leftHours">06</p>
-                <p id="rightHours">06</p></div>
-                <div id="hourLine"><p id="leftHours">07</p>
-                <p id="rightHours">07</p></div>
-                <div id="hourLine"><p id="leftHours">08</p>
-                <p id="rightHours">08</p></div>
-                <div id="hourLine"><p id="leftHours">09</p>
-                <p id="rightHours">09</p></div>
-                <div id="hourLine"><p id="leftHours">10</p>
-                <p id="rightHours">10</p></div>
-                <div id="hourLine"><p id="leftHours">11</p>
-                <p id="rightHours">11</p></div>
-                <div id="hourLine"><p id="leftHours">12<br>pm</p>
-                <p id="rightHours" style="top: -50;">12<br>pm</p></div>
-                <div id="hourLine"><p id="leftHours">01</p>
-                <p id="rightHours">01</p></div>
-                <div id="hourLine"><p id="leftHours">02</p>
-                <p id="rightHours">02</p></div>
-                <div id="hourLine"><p id="leftHours">03</p>
-                <p id="rightHours">03</p></div>
-                <div id="hourLine"><p id="leftHours">04</p>
-                <p id="rightHours">04</p></div>
-                <div id="hourLine"><p id="leftHours">05</p>
-                <p id="rightHours">05</p></div>
-                <div id="hourLine"><p id="leftHours">06</p>
-                <p id="rightHours">06</p></div>
-                <div id="hourLine"><p id="leftHours">07</p>
-                <p id="rightHours">07</p></div>
-                <div id="hourLine"><p id="leftHours">08</p>
-                <p id="rightHours">08</p></div>
-                <div id="hourLine"><p id="leftHours">09</p>
-                <p id="rightHours">09</p></div>
-                <div id="hourLine"><p id="leftHours">10</p>
-                <p id="rightHours">10</p></div>
-                <div id="hourLine"><p id="leftHours">11</p>
-                <p id="rightHours">11</p></div>
-                <div id="hourLine"><p id="leftHours">12<br>pm</p>
-                <p id="rightHours" style="top: -50;">12<br>pm</p></div>
-
-
-                <div id="category">
-                    <span style="color:#d500f9">ROTATION</span> -
-                    <span style="color:#7c4dff">TALK</span> -
-                    <span style="color:#40c4ff">SPECIALTY</span> -
-                    <span style="color:#1De9b6">SPORTS</span>
-                </div>
 
             </div>
         </div>
