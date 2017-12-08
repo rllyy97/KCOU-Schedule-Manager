@@ -25,6 +25,8 @@ app.set('vier engine', 'ejs');
 /*Basic routing for dynamic javascript*/
 app.use('/js', express.static(__dirname + '/static/assets/js/'));
 
+app.use('/images', express.static(__dirname + '/static/assets/images/'));
+
 //Will serve our index.
 app.get('/', function(req, res){
   res.sendFile(__dirname + '/index.html');
@@ -75,12 +77,19 @@ app.get('/getShows', function(req, res){
 
 })
 
+//To Do
+app.delete('/removeShow', function(req, res){
+
+});
+
+app.put('upDateShow', function(req, res){
+
+});
+
 app.post('/addShow', function(req, res){
   connection.connect()
   console.log("Adding  a Show")
   console.log(req.body);
-  //Configuring our post
-
   var title = req.body.title;
   var hosts = [];
   if (req.body.hostOneFirst != ''){
@@ -166,5 +175,4 @@ app.post('/addShow', function(req, res){
 
 http.listen(3000, function(){
   console.log('listening on *:3000');
-
 });
