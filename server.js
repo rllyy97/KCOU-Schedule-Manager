@@ -18,21 +18,21 @@ app.use(bodyParser.urlencoded({
 /*Enables us to take requests in JSON format */
 app.use(bodyParser.json());
 
+app.set('vier engine', 'ejs');
+
 
 /*Basic routing for dynamic javascript*/
 app.use('/js', express.static(__dirname + '/static/assets/js/'));
 
 //Will serve our index.
 app.get('/', function(req, res){
-  res.send('hello world');
+  res.sendFile(__dirname + '/index.html');
 });
 
 
 
 app.get('/dbtest', function(req, res){
   connection.connect()
-  console.log("Yooo");
-
   connection.query('SELECT * FROM hosts', function(err, results){
     if (err){
       console.log(err)
@@ -49,18 +49,20 @@ app.get('/dbtest', function(req, res){
 app.get('/getShows', function(req, res){
   connection.connect()
   console.log("Fetching Shows");
-
   connection.query('SELECT * FROM shows', function(err, results){
     if (err){
       console.log(err)
     }
-    console.log(results);
-    for(info in results){
-      console.log(info.title);
+    var len = results.length;
+    for (i = 0; i < len; i++){
+      console.log("Row returned: " + i);
+      console.log(results[i]);
     }
-  });
 
-  res.send("Got shows");
+    res.status(200).json(results);
+
+
+  });
   connection.end();
 
 })
