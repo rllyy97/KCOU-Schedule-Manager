@@ -1,6 +1,6 @@
 # KCOU-Schedule-Manager
 FM schedule manager for KCOU 88.1FM in Columbia, MO
-Team Members Include: Riley Evans, Jim Jung
+Team Members Include: Riley Evans, James Jung
 
 ### APPLICATION DESCRIPTION
 This project (KCOU Schedule Manager) is an interactive scheduling web app that manages the KCOU 88.1FM show schedule and show hosts.  The FM schedule is displayed in a weekly-calendar sort of view where the columns are the days of the week and the time starts at midnight one morning to 11:59 that night.  The shows are mainly organized by date/time in the week, but also have color categories based on the genre of show.  These shows when clicked take you to a more detailed screen showing the name, hosts, day of the week, start time, end time, description.  There are two buttons at the top to edit and delete the show, edit takes you to another page where you can change or add info as needed.
