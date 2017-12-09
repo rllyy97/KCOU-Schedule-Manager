@@ -41,11 +41,13 @@ dj_name varchar(255) NOT NULL
 ![ERD](https://raw.githubusercontent.com/rllyy97/KCOU-Schedule-Manager/master/ERD.png)
 
 ### C.R.U.D. COMPLIANCE
- - CREATE - On the homescreen, the “Add” button sends the user to the edit page where they can fill out all the info for a show, when the user clicks the “Save” button it creates a new entry in the “shows” table
+ - CREATE - On the homescreen, the “Add” button sends the user to the edit page where they can fill out all the info for a show, when the user clicks the “Save” button it creates a new entry in the “shows” table. On this page, the user additionally adds "hosts" per show. These hosts are added to our hosts table, with each being given a show_id value equivalent to our just created show's id.
 
- - READ - The homescreen reads in all of the show names, IDs, and times to place them in view.  The detail page reads all show information for a specific show in the “shows” table by ID.
+ - READ - The homescreen reads in all of the show names, IDs, and times to place them in view.  The detail page, which appears after clicking on a show, reads all show information for a specific show in the “shows” table by ID. It also pulls from the hosts table, grabbing matching hosts.
 
- - UPDATE - On the detail page, the user can hit an “Edit” button to take them to the edit page where they can update information that previously existed, then the update is executed when the user clicks the “Save” button.
+ - UPDATE - On the show detail page, the user can hit an “Edit” button to take them to the edit page where they can update information 
+ (show descriptions) that previously existed, then the update is executed when the user clicks the “Save” button.
+ 
  - DELETE - On the detail page for a show, there is a “Delete” button that when clicked simply deletes that show and sends the user back to the homescreen.
 
 ### VIDEO DEMONSTRATION (url)
