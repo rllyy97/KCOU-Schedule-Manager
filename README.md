@@ -7,7 +7,7 @@ This project (KCOU Schedule Manager) is an interactive scheduling web app that m
 
 This application is intended to solve a problem we have had of having multiple versions of schedules that should be the same, leading to issues when trying to figure out what is correct and where some of the detailed information is.  This gives everyone the same unified schedule with all of the needed information for a show.
 
-### DATABASE SCHEMA (table definitions)
+### DATABASE SCHEMA
 
 ### Shows:
 
@@ -50,6 +50,6 @@ dj_name varchar(255) NOT NULL
  
  - DELETE - On the detail page for a show, there is a “Delete” button that when clicked simply deletes that show and sends the user back to the homescreen.
 
-### VIDEO DEMONSTRATION (url)
+### VIDEO DEMONSTRATION
 
 https://youtu.be/WIPJeY9fh34
