@@ -157,7 +157,7 @@ app.get('/editShow/:id', function(req, res){
 app.post('/makeChange/:id', function(req, res){
   var desc = req.body.description;
   var id = req.params.id;
-  query = "UPDATE shows SET description='" + desc +"' WHERE id=" +id;
+  query = "UPDATE shows SET description=" + connection.escape(desc) +" WHERE id=" +id;
   connection.query(query, function(err, results){
     if (err){
       console.log(err);
@@ -224,7 +224,7 @@ app.post('/addShow', function(req, res){
 
 
   var sql = "INSERT INTO shows (title, category, start_time, end_time, description, weekday) VALUES "
-  var tooAdd = "( '" + title + "', '"  + category + "', '" + start_time + "', '" + end_time + "', '" + description + "', '" + weekday + "')";
+  var tooAdd = "( " + connection.escape(title) + ", "  + connection.escape(category) + ", '" + start_time + "', '" + end_time + "', " + connection.escape(description) + ", '" + weekday + "')";
   var totalQuery = sql + tooAdd;
   var k;
   console.log(totalQuery);
@@ -235,7 +235,8 @@ app.post('/addShow', function(req, res){
     else {
       console.log("Posted!");
       len = hosts.length
-      title = "'"+title+"'"
+      console.log(title);
+       title = "'"+title+"'"
         query = "SELECT * FROM shows WHERE title=" + title;
         connection.query(query, function(err, results){
           if(err){
