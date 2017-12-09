@@ -1,7 +1,7 @@
 <!--–– MAIN VIEW ---->
 <html>
     <head>
-
+      <title>Schedule Manager</title>
       <!-- jquery cdn -->
       <script
       src="https://code.jquery.com/jquery-3.2.1.min.js"
@@ -66,22 +66,156 @@
         }
 
         #category{float:left;width:840px;text-align:center;font-weight:600;}
-        .rotation{background-color:#d500f9}
-        .talk{background-color:#7c4dff}
-        .specialty{background-color:#40c4ff}
-        .sports{background-color:#1de9b6}
-        .safeHarbor{background-color:#ff1844}
+        .rotation{background-color:#d500f9; width:118px; font-family:inherit;}
+        .talk{background-color:#7c4dff; width:118px; font-family:inherit;}
+        .specialty{background-color:#40c4ff; width:118px; font-family:inherit;}
+        .sports{background-color:#1de9b6; width:118px; font-family:inherit;}
+        .safeHarbor{background-color:#ff1844; width:118px; font-family:inherit;}
 
         #card {
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.0);
             border: 0;
             border-radius: 4px;
         }
-        
+
             .adding {
               color: white;
               text-decoration: none;
             }
+
+          /*Calculated classese*/
+
+        .sunday {
+          left: 57px;
+          color: white;
+          position: absolute;
+        }
+        .monday {
+          position: absolute;
+          left: 177px;
+          color: white;
+        }
+        .tuesday{
+          position: absolute;
+          left: 297px;
+          color: white;
+        }
+        .wednesday{
+          left: 417px;
+          color: white;
+          position: absolute;
+        }
+        .thursday{
+          left: 537px;
+          position: absolute;
+          color: white;
+          position: absolute;
+        }
+        .friday{
+          left: 657px;
+          color: white;
+          position: absolute;
+        }
+        .saturday{
+          left: 777px;
+          color: white;
+          position: absolute;
+        }
+
+        /*time based class application*/
+
+        .midnight{
+          position: absolute;
+          top: 162px;
+        }
+
+        .oneAM{
+          top: 222px;
+          position: absolute;
+        }
+
+        .twoAM{
+          top: 282px;
+          position: absolute;
+        }
+
+        .threeAM{
+          top: 342px;
+          position: absolute;
+        }
+
+        .fourAM{
+          top: 402px;
+          position: absolute;
+        }
+
+        .fiveAM {
+          top: 462px;
+          position: absolute;
+        }
+
+        .sixAM{
+          top: 522px;
+          position: absolute;
+        }
+
+        .sevenAM{
+          top: 582px;
+          position: absolute;
+        }
+
+        .eightAM{
+          top: 642px;
+          position: absolute;
+        }
+
+        .nineAM{
+          top: 702px;
+          position: absolute;
+        }
+
+        .tenAM{
+          top: 762px;
+          position: absolute;
+        }
+
+        .elevenAM{
+          top: 822px;
+          position: absolute;
+        }
+
+        .twelve{
+          top: 882px;
+          position: absolute;
+        }
+
+        .onePM{top: 942px;
+        position: absolute;}
+        .twoPM{top: 1002px;
+        position: absolute;}
+        .threePM{top: 1062px;
+        position: absolute;}
+        .fourPM{top: 1122px;
+        position: absolute;}
+        .fivePM{top: 1182px;
+        position: absolute;}
+        .sixPM{top: 1242px;
+        position: absolute;}
+        .sevenPM{top: 1302px;
+        position: absolute;}
+        .eightPM{top: 1362px;
+        position: absolute;}
+        .ninePM{top: 1422px;
+        position: absolute;}
+        .tenPM{top: 1482px;
+        position: absolute;}
+        .elevenPM{top: 1542px;
+        position: absolute;}
+
+
+
+
+
 
         </style>
 
@@ -114,18 +248,14 @@
 
             <!--–– SHOWS ---->
             <div style="width:840px; height:840px;display:inline">
+            <div id='showApp'>
+              <div v-for="(show, index) in shows" :key="index" v-bind:index="index" :class="[show.weekday, show.starts, show.category]">
 
-            <!-- EXAMPLE
-                <button onClick="changeShow('/junk-1/2017/3/10/its-just-me')"
-                     class="music"
-                     style="height:55px;
-                            line-height:55px;
-                            left:495px;
-                            top:470px;"
-                     id="show">It's Just Me</button>
-            -->
+                {{show.title}}
 
-            </div>
+              </div>
+          </div>
         </div>
+        <script src="/js/app.js"></script>
     </body>
 </html>

@@ -10,6 +10,7 @@ var connection = mysql.createConnection({
   password: 'kcou321!',
   database: "kcou"
 });
+connection.connect();
 
 
 app.use(bodyParser.urlencoded({
@@ -42,7 +43,7 @@ app.get('/add', function(req, res){
 
 
 app.get('/dbtest', function(req, res){
-  connection.connect()
+//  connection.connect()
   connection.query('SELECT * FROM hosts', function(err, results){
     if (err){
       console.log(err)
@@ -51,13 +52,14 @@ app.get('/dbtest', function(req, res){
     console.log(results[0].first_name);
   });
 
+//  connection.end();
+
   res.send('Database did stuff');
 
-  connection.end();
 });
 
 app.get('/getShows', function(req, res){
-  connection.connect()
+//  connection.connect()
   console.log("Fetching Shows");
   connection.query('SELECT * FROM shows', function(err, results){
     if (err){
@@ -73,7 +75,7 @@ app.get('/getShows', function(req, res){
 
 
   });
-  connection.end();
+//  connection.end();
 
 })
 
@@ -87,7 +89,7 @@ app.put('upDateShow', function(req, res){
 });
 
 app.post('/addShow', function(req, res){
-  connection.connect()
+//  connection.connect()
   console.log("Adding  a Show")
   console.log(req.body);
   var title = req.body.title;
@@ -161,8 +163,9 @@ app.post('/addShow', function(req, res){
                     console.log("Cool.");
                   }
                 });
+  //              connection.end();
+
               }
-          connection.end();
         }
         });
     }
