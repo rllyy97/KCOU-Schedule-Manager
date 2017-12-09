@@ -45,7 +45,7 @@
             border-radius: 4px;
         }
 
-        #show{
+        #showHold{
             width: 118px;
             margin: 2px;
             text-align: center;
@@ -107,9 +107,7 @@
         }
         .thursday{
           left: 537px;
-          position: absolute;
           color: white;
-          position: absolute;
         }
         .friday{
           left: 657px;
@@ -130,86 +128,85 @@
         }
 
         .oneAM{
-          top: 222px;
+          top: 192px;
           position: absolute;
         }
 
         .twoAM{
-          top: 282px;
+          top: 222px;
           position: absolute;
         }
 
         .threeAM{
-          top: 342px;
+          top: 252px;
           position: absolute;
         }
 
         .fourAM{
-          top: 402px;
+          top: 282px;
           position: absolute;
         }
 
         .fiveAM {
-          top: 462px;
-          position: absolute;
+          top: 312px;
         }
 
         .sixAM{
-          top: 522px;
+          top: 342px;
           position: absolute;
         }
 
         .sevenAM{
-          top: 582px;
+          top: 372px;
           position: absolute;
         }
 
         .eightAM{
-          top: 642px;
+          top: 402px;
           position: absolute;
         }
 
         .nineAM{
-          top: 702px;
+          top: 432px;
           position: absolute;
         }
 
         .tenAM{
-          top: 762px;
+          top: 462px;
           position: absolute;
         }
 
         .elevenAM{
-          top: 822px;
+          top: 492px;
           position: absolute;
         }
 
         .twelve{
-          top: 882px;
+          top: 522px;
           position: absolute;
         }
 
-        .onePM{top: 942px;
+        .onePM{top: 582px;
         position: absolute;}
-        .twoPM{top: 1002px;
+        .twoPM{top: 612px;
         position: absolute;}
-        .threePM{top: 1062px;
+        .threePM{top: 642px;
         position: absolute;}
-        .fourPM{top: 1122px;
+        .fourPM{top: 672px;
         position: absolute;}
-        .fivePM{top: 1182px;
+        .fivePM{top: 702px;
         position: absolute;}
-        .sixPM{top: 1242px;
+        .sixPM{top: 732px;
         position: absolute;}
-        .sevenPM{top: 1302px;
+        .sevenPM{top: 762px;
         position: absolute;}
-        .eightPM{top: 1362px;
+        .eightPM{top: 792px;
         position: absolute;}
-        .ninePM{top: 1422px;
+        .ninePM{top: 822px;
         position: absolute;}
-        .tenPM{top: 1482px;
+        .tenPM{top: 852px;
         position: absolute;}
-        .elevenPM{top: 1542px;
+        .elevenPM{top: 822px;
         position: absolute;}
 
 
@@ -249,7 +246,7 @@
             <!--–– SHOWS ---->
             <div style="width:840px; height:840px;display:inline">
             <div id='showApp'>
-              <div v-for="(show, index) in shows" :key="index" v-bind:index="index" :class="[show.weekday, show.starts, show.category]">
+              <div v-for="(show, index) in shows" :key="index" v-bind:index="index" :class="[show.weekday, show.starts, show.category]" id="showHold">
 
                 {{show.title}}
 
