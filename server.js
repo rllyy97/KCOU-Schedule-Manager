@@ -3,6 +3,8 @@ var express = require('express');
 var http = require('http').Server(app);
 var bodyParser = require('body-parser');
 var mysql = require('mysql');
+var ejs = require('ejs');
+
 //var Q = require('Q');
 var connection = mysql.createConnection({
   host : 'localhost',
@@ -12,7 +14,6 @@ var connection = mysql.createConnection({
 });
 connection.connect();
 
-
 app.use(bodyParser.urlencoded({
   extended: true
 }));
@@ -20,7 +21,7 @@ app.use(bodyParser.urlencoded({
 /*Enables us to take requests in JSON format */
 app.use(bodyParser.json());
 
-app.set('vier engine', 'ejs');
+app.set('view engine', 'ejs');
 
 
 /*Basic routing for dynamic javascript*/
@@ -75,17 +76,109 @@ app.get('/getShows', function(req, res){
 
 
   });
-//  connection.end();
+})
+
+app.get('/getPage/:id', function(req, res){
+  var id = req.params.id;
+  query = "SELECT * FROM shows where id=" + id;
+  console.log(id);
+  var title;
+  var weekday;
+  var descrip;
+  var start;
+  var end;
+
+  connection.query(query, function(err, results){
+    if (err){
+      console.log(err)
+    }
+    else{
+      query2 = "SELECT * FROM hosts where show_id=" +id;
+      title = results[0].title;
+      weekday = results[0].weekday;
+      descrip = results[0].description;
+      start = results[0].start_time;
+      end = results[0].end_time;
+      hosts = [];
+      connection.query(query2, function(err, results){
+        if (err){
+          console.log(err);
+        }
+        else {
+          console.log(results);
+          var len = results.length;
+          for (var i = 0; i < len; i++){
+            console.log(i);
+            host = {
+              first_name: results[i].first_name,
+              last_name: results[i].last_name,
+              dj_name: results[i].dj_name
+            }
+            hosts.push(host);
+          }
+          editing = '/editShow/' + id;
+          console.log(editing);
+          res.render('showPage', {
+            title: title,
+            weekday: weekday,
+            start_time: start,
+            end_time: end,
+            description: descrip,
+            hosts: hosts,
+            editLink: editing,
+            id: id
+          });
+        }
+      });
+    }
+  });
 
 })
 
-//To Do
-app.delete('/removeShow', function(req, res){
+app.get('/editShow/:id', function(req, res){
+  var id = req.params.id;
+  query = "SELECT * FROM shows where id=" + id;
+  var title;
+  var changeLink ='/makeChange/' + id;
+  connection.query(query, function(err, results){
+    if (err){
+      console.log(err)
+    }
+    else{
+      title = results[0].title;
+      res.render('editingAShow', {
+        title: title,
+        changeLink: changeLink
+      });
+      }
+    });
+})
 
-});
+app.post('/makeChange/:id', function(req, res){
+  var desc = req.body.description;
+  var id = req.params.id;
+  query = "UPDATE shows SET description='" + desc +"' WHERE id=" +id;
+  connection.query(query, function(err, results){
+    if (err){
+      console.log(err);
+    }
+    else{
+      res.sendFile(__dirname + '/index.html');
+    }
+  })
+})
 
-app.put('upDateShow', function(req, res){
-
+app.post('/removeShow/:id', function(req, res){
+  var id = req.params.id;
+  query = "DELETE FROM shows where id=" + id;
+  connection.query(query, function(err, results){
+    if (err){
+      console.log(err);
+    }
+    else {
+      res.render('index');
+    }
+  })
 });
 
 app.post('/addShow', function(req, res){

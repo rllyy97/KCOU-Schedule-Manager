@@ -8,6 +8,8 @@ var app = new Vue({
     $.get("/getShows", function(data){
       showHolder.shows = data;
       showHolder.shows.forEach(function(show){
+        var url = "/getPage/";
+        show.url = url + show.id;
         var starting = show.start_time.slice(0,2);
         switch(starting){
           case "00":
