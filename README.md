@@ -51,3 +51,5 @@ dj_name varchar(255) NOT NULL
  - DELETE - On the detail page for a show, there is a “Delete” button that when clicked simply deletes that show and sends the user back to the homescreen.
 
 ### VIDEO DEMONSTRATION (url)
+
+https://youtu.be/WIPJeY9fh34
