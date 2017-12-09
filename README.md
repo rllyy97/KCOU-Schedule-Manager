@@ -38,7 +38,7 @@ last_name varchar(255) NOT NULL
 dj_name varchar(255) NOT NULL
 
 ### ENTITY RELATIONSHIP DIAGRAM
-![ERD](https://lh5.googleusercontent.com/Ia-Ezx6dUFHjeoGYWfea2D8xLhVxtpwhMBXj27CnfYlfaX71bzyeis87Vpqro_gGxtsT2MR6mjravM9AKAo=w1440-h744-rw)
+![ERD](https://raw.githubusercontent.com/rllyy97/KCOU-Schedule-Manager/master/ERD.png)
 
 ### C.R.U.D. COMPLIANCE
  - CREATE - On the homescreen, the “Add” button sends the user to the edit page where they can fill out all the info for a show, when the user clicks the “Save” button it creates a new entry in the “shows” table
